@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cardápio | Alessio's Pizzaria</title>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+      .menu-list li {
+        margin-bottom: 20px;
+      }
+
+      button {
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      #carrinho {
+        margin-top: 50px;
+        padding: 20px;
+        border-top: 2px solid #ccc;
+      }
+
+      #itens-carrinho {
+        margin-bottom: 20px;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      .hero {
+        min-height: calc(100vh - 150px);
+      }
+
+      #pedidos {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 280px;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        transition: all 0.3s ease;
+        z-index: 999;
+        font-family: Arial, sans-serif;
+      }
+
+      #pedidos.minimizado {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        overflow: hidden;
+        border-radius: 50%;
+      }
+
+      #pedidos.minimizado #conteudo-pedidos,
+      #pedidos.minimizado h2 {
+        display: none;
+      }
+
+      #toggle-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 28px;
+        height: 28px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      #itens-pedidos {
+        max-height: 120px;
+        overflow-y: auto;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        margin-bottom: 8px;
+        padding: 6px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+
+      button.confirmar-btn {
+        background-color: #27ae60;
+        color: white;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+
+      #mensagem-pedido {
+        font-size: 14px;
+        color: green;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+
+      .voltar-btn {
+        display: inline-block;
+        margin: 20px;
+        padding: 10px 20px;
+        background-color: #2c3e50;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+      }
+
+      .voltar-btn:hover {
+        background-color: #34495e;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="voltar-btn" href="home.html">← Voltar para o Menu Principal</a>
+
+    <section id="menu">
+      <h2>Cardápio</h2>
+      <ul class="menu-list">
+        <li>
+          <img
+            src="img/pexels-engin-akyurt-2260208.jpg"
+            alt="Pizza Margherita"
+          />
+          <h3>Pizza Margherita - R$ 40,00</h3>
+          <p>Molho de tomate, mussarela, manjericão fresco.</p>
+          <button onclick="adicionarCarrinho('Pizza Margherita', 40)">
+            Escolher
+          </button>
+        </li>
+        <li>
+          <img
+            src="img/pexels-engin-akyurt-2260208.jpg"
+            alt="Pizza Pepperoni"
+          />
+          <h3>Pizza Pepperoni - R$ 45,00</h3>
+          <p>Molho de tomate, pepperoni, queijo mussarela.</p>
+          <button onclick="adicionarCarrinho('Pizza Pepperoni', 45)">
+            Escolher
+          </button>
+        </li>
+        <li>
+          <img
+            src="img/pexels-engin-akyurt-2260208.jpg"
+            alt="Pizza Quatro Queijos"
+          />
+          <h3>Pizza Quatro Queijos - R$ 47,00</h3>
+          <p>Molho de tomate, mussarela, parmesão, gorgonzola, provolone.</p>
+          <button onclick="adicionarCarrinho('Pizza Quatro Queijos', 47)">
+            Escolher
+          </button>
+        </li>
+        <li>
+          <img
+            src="img/pexels-engin-akyurt-2260208.jpg"
+            alt="Pizza Calabresa"
+          />
+          <h3>Pizza Calabresa - R$ 43,00</h3>
+          <p>Molho de tomate, calabresa, cebola, queijo mussarela.</p>
+          <button onclick="adicionarCarrinho('Pizza Calabresa', 43)">
+            Escolher
+          </button>
+        </li>
+        <li>
+          <img
+            src="img/pexels-engin-akyurt-2260208.jpg"
+            alt="Pizza Portuguesa"
+          />
+          <h3>Pizza Portuguesa - R$ 48,00</h3>
+          <p>Molho de tomate, presunto, ovo, cebola, azeitona e mussarela.</p>
+          <button onclick="adicionarCarrinho('Pizza Portuguesa', 48)">
+            Escolher
+          </button>
+        </li>
+        <li>
+          <img
+            src="img/pexels-engin-akyurt-2260208.jpg"
+            alt="Pizza Frango com Catupiry"
+          />
+          <h3>Pizza Frango com Catupiry - R$ 46,00</h3>
+          <p>Molho de tomate, frango desfiado, catupiry, queijo mussarela.</p>
+          <button onclick="adicionarCarrinho('Pizza Frango com Catupiry', 46)">
+            Escolher
+          </button>
+        </li>
+      </ul>
+    </section>
+
+    <section id="pedidos">
+      <button id="toggle-btn" onclick="togglePedidos()">−</button>
+      <h2>Pedidos</h2>
+      <div id="conteudo-pedidos">
+        <ul id="itens-pedidos"></ul>
+        <p>
+          <strong>Total: R$ <span id="total">0</span></strong>
+        </p>
+        <input type="text" id="endereco" placeholder="Endereço" />
+        <input type="text" id="numero" placeholder="Número da casa" />
+        <input type="text" id="telefone" placeholder="Telefone" />
+        <button class="confirmar-btn" onclick="confirmarPedido()">
+          Confirmar Pedido
+        </button>
+        <p id="mensagem-pedido"></p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Casa di Pizza</p>
+    </footer>
+
+    <script>
+      let total = 0;
+      const pedidos = document.getElementById("itens-pedidos");
+      const totalSpan = document.getElementById("total");
+
+      function adicionarCarrinho(sabor, preco) {
+        const item = document.createElement("li");
+        item.textContent = `${sabor} - R$ ${preco}`;
+        pedidos.appendChild(item);
+        total += preco;
+        totalSpan.textContent = total.toFixed(2);
+      }
+
+      function confirmarPedido() {
+        const endereco = document.getElementById("endereco").value;
+        const numero = document.getElementById("numero").value;
+        const telefone = document.getElementById("telefone").value;
+        if (!endereco || !numero || !telefone) {
+          alert("Por favor, preencha todos os campos de endereço e telefone.");
+          return;
+        }
+        document.getElementById("mensagem-pedido").textContent =
+          "Pedido confirmado! Obrigado pela preferência.";
+      }
+
+      function togglePedidos() {
+        const box = document.getElementById("pedidos");
+        const btn = document.getElementById("toggle-btn");
+        box.classList.toggle("minimizado");
+        btn.textContent = box.classList.contains("minimizado") ? "+" : "−";
+      }
+    </script>
+  </body>
+</html>

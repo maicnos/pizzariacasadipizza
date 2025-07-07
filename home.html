@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Casa di Pizza</title>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      .hero {
+        min-height: calc(
+          100vh - 150px
+        ); /* altura da tela menos o header e o footer estimados */
+      }
+    </style>
+  </head>
+
+  <body style="min-height: 100vh; display: flex; flex-direction: column">
+    <header>
+      <nav>
+        <ul>
+          <li><a href="home.html" target="_blank">Home</a></li>
+          <li><a href="cardapio.html" target="_blank">Cardápio</a></li>
+          <li><a href="sobre.html" target="_blank">Sobre Nós</a></li>
+          <li><a href="contato.html" target="_blank">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main style="flex: 1">
+      <section id="home">
+        <div class="hero">
+          <h1>Bem-vindo à Casa di Pizza</h1>
+          <p>Saborosas pizzas feitas especialmente para você!</p>
+          <a href="cardapio.html" target="_blank" class="cta-button"
+            >Ver Cardápio</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Casa di Pizza</p>
+    </footer>
+  </body>
+</html>

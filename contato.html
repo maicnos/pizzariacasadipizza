@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa di Pizza</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="home.html" target="_blank">Home</a></li>
+        <li><a href="cardapio.html" target="_blank">Cardápio</a></li>
+        <li><a href="sobre.html" target="_blank">Sobre Nós</a></li>
+        <li><a href="contato.html" target="_blank">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="contatos-diretos" style="text-align: center; padding: 6rem 4rem; background-color: #f9f9f9; background-image: url('img/pexels-narda-yescas-1566837.jpg'); background-size: cover; background-position: center; color: white; min-height: 90vh;">
+      <h2 style="text-shadow: 1px 1px 3px black;">Fale Conosco Diretamente</h2>
+      <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 2rem;">
+        <div style="background: rgba(0, 0, 0, 0.7); padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
+          <h3 style="color: #ffa500;">Maicon</h3>
+          <p>📞 (75) 99865-6534</p>
+        </div>
+        <div style="background: rgba(0, 0, 0, 0.7); padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
+          <h3 style="color: #ffa500;">Kevin</h3>
+          <p>📞 (75) 99562-4465</p>
+        </div>
+      </div>
+      <p style="margin-top: 3rem; font-style: italic; text-shadow: 1px 1px 2px black;">Estamos prontos para atender você com todo o carinho e a melhor pizza da cidade!</p>
+
+      <!-- Formulário de contato -->
+      <form style="margin-top: 3rem; background: rgba(0, 0, 0, 0.6); padding: 2rem; border-radius: 1rem; display: inline-block; text-align: left; box-shadow: 0 4px 12px rgba(0,0,0,0.4); max-width: 400px;">
+        <h3 style="color: #ffa500; text-align: center;">Entre em Contato</h3>
+        <label for="nome" style="color: white;">Nome:</label><br>
+        <input type="text" id="nome" name="nome" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border-radius: 5px;"><br>
+
+        <label for="telefone" style="color: white;">Telefone:</label><br>
+        <input type="tel" id="telefone" name="telefone" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border-radius: 5px;"><br>
+
+        <label for="mensagem" style="color: white;">Mensagem:</label><br>
+        <textarea id="mensagem" name="mensagem" rows="4" style="width: 100%; padding: 0.5rem; border-radius: 5px;"></textarea><br><br>
+
+        <button type="submit" style="background-color: #ffa500; color: black; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Enviar</button>
+      </form>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Casa di Pizza</p>
+  </footer>
+</body>
+
+</html>
